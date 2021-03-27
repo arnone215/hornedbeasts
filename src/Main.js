@@ -3,6 +3,7 @@ import HornedBeast from './HornedBeast';
 import data from './data.json';
 import CardColumns from 'react-bootstrap/CardColumns';
 import './Main.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
