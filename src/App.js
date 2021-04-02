@@ -14,16 +14,18 @@ class App extends React.Component {
     this.state = {
       show: false,
       beast: data,
+      chosenBeast: null,
     }
   }
 
   showBeastInModal = (clickedBeast) => {
+    console.log(clickedBeast);
     this.setState({
       show: true,
-      beast: clickedBeast,
+      chosenBeast: clickedBeast,
       
     }) 
-    console.log(clickedBeast);
+    // console.log(clickedBeast);
   }
 
   hideBeastInModal = () => {
@@ -40,14 +42,15 @@ class App extends React.Component {
         <Header />
         <DropdownSelection />
         <Main 
-          beasts={this.state.beast}
+          beast={this.state.beast}
           handleClick={this.showBeastInModal}
         />
-        <SelectedBeast
+        {!this.state.show ? "" : 
+          <SelectedBeast
         show={this.state.show}
         hideBeast={this.hideBeastInModal}
-        beast={this.state.beast}
-        />
+        beast={this.state.chosenBeast}
+        />}
         
         <Footer />
       </div>
