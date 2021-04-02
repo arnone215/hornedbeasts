@@ -6,10 +6,10 @@ import './Main.css';
 
 class Main extends React.Component {
     render () {
-        let beastArray = this.props.beasts.map((beast, index) => (
+        let beastArray = this.props.beast.map((beast, index) => (
             <HornedBeast
             name = {beast.keyword}
-            title = {beast.ttle}
+            title = {beast.title}
             image_url = {beast.image_url}
             description = {beast.description}
             key={index}
