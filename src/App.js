@@ -4,6 +4,7 @@ import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js'
 import SelectedBeast from './SelectedBeast';
+import DropdownSelection from './DropdownSelection';
 
 import data from './data.json';
 
@@ -12,7 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       show: false,
-      beast: {}
+      beast: data,
     }
   }
 
@@ -37,8 +38,9 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <DropdownSelection />
         <Main 
-          beasts={data}
+          beasts={this.state.beast}
           handleClick={this.showBeastInModal}
         />
         <SelectedBeast
