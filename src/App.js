@@ -15,6 +15,16 @@ class App extends React.Component {
       show: false,
       beast: data,
       chosenBeast: null,
+      filteredBeast: null,
+    }
+  }
+
+  renderfilteredBeast = (choice) => {
+    if (choice === 0){
+      this.setState({filteredBeast: null})
+    } else {
+      const result = this.state.beast.filter(eachBeast => eachBeast.horns === choice);
+      this.setState({filteredBeast: result})
     }
   }
 
@@ -40,9 +50,10 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <DropdownSelection />
+        <DropdownSelection renderfilteredBeast={this.renderfilteredBeast}/>
         <Main 
           beast={this.state.beast}
+          filteredBeast={this.state.filteredBeast}
           handleClick={this.showBeastInModal}
         />
         {!this.state.show ? "" : 
