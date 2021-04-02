@@ -1,16 +1,23 @@
 import React from 'react';
 import HornedBeast from './HornedBeast';
-import data from './data.json';
 import CardColumns from 'react-bootstrap/CardColumns';
 import './Main.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 
 class Main extends React.Component {
+  // constructor(props){
+  //   super()
+  //   this.state={
+  //     data: this.props.info
+  //   }
+  // }
   render() {
-    let beastArray = data.map ( animal => {
+    console.log(this.props.info)
+    let beastArray = this.props.info.map ( animal => {
       return <HornedBeast
+        key= {animal.title}
         name = {animal.keyword}
         title = {animal.title}
         image_url = {animal.image_url}
